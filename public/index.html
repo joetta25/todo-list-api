@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo List</title>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="todolist not-done">
+                    <div>
+                        <h1>Todo List</h1>
+                        <input type="text" class="js-todo-name" placeholder="Title....">
+                        <button id="checkAll" class="btn btn-success">Mark all as done</button>
+                        <span id="add-todo" class="btn btn-success">add</span>
+                    </div>
+
+                    <hr>
+                    <ul id="js-todos" class="list-unstyled">
+                        <li class= "item">
+                            <button class="todo-edit-id">Edit</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="app.js"></script>
+</body>
+</html>
