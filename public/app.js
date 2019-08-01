@@ -20,7 +20,7 @@ function getTodoHTML(todo) {
     return `
     <li>
         <div class="container">
-            <div class="btn-group">
+             <div class="btn-group">
                 <form onsubmit="return updateTodo('${todo.id}')">
                     <input type="text" class="todo-text-${todo.id}"
                     value="${todo.todo}"><button type="button" class="btn btn-success type="button ">Save</button>
