@@ -1,22 +1,35 @@
-//Once the page loads 
-window.onload = function(){
-
-}
 // I am selecting where i want the data to be rendered to 
  const todos = document.querySelector('.js-todos');
 
- //Once the I recieve the data i want to render it to the page 
+ $.ajax('/api/todos')
+    .then(data => {
+        render(data);
+    });
+
+
 
 function render(data) { 
     todos.innerHTML = ''; // set the innerhtml property
     data.forEach(todo => {
-        const html = getTodoHTML(todo); // call it HMTL 
-        todos.innerHTML += html; // add each item into the empty string 
+        const html = getTodoHTML(todo); // the html variable html well equal to function and have each object as the parameter
+        todos.innerHTML += html; // add each item into the empty string and formating it in getTodoHTML function 
     });
 }
 
-$.get("/api/todos", function(data){
-    console.log(data);
-})
-
-
+function getTodoHTML(todo) {
+    return `
+    <li>
+        <div class="container">
+            <div class="btn-group">
+                <form onsubmit="return updateTodo('${todo.id}')">
+                    <input type="text" class="todo-text-${todo.id}"
+                    value="${todo.todo}"><button type="button" class="btn btn-success type="button ">Save</button>
+                </form>
+                <button type="button"  class="btn btn-danger" onclick="deleteTodo('${todo.todo}')">X</button>
+                <button type="button" class="btn btn-secondary" onclick="EditTodo('${todo.id})">Edit</button>
+            </div>
+        </div>
+    </li>
+    
+    `
+}
